@@ -2,19 +2,14 @@ import heapq
 class Solution:
     def kthSmallest(self, matrix: List[List[int]], k: int) -> int:
         counter = k
-        minElements = []
-        for row in range(len(matrix)):
-            nextValInRow = float("inf") if len(matrix[row]) <= 1 else matrix[row][1]
-            element = (matrix[row][0],nextValInRow,row,0)
-            minElements.append(element)
         
-        heapq.heapify(minElements)
+        heap = [(matrix[i][0], i, 0) for i in range(min(k, len(matrix)))]
         
         kSmallest = None
-        while counter != 0 and len(minElements):
+        while counter != 0 and len(heap):
             
             
-            element = heapq.heappop(minElements)
+            element = heapq.heappop(heap)
             value,nextValInRow,array,idx = element
             
             kSmallest = value
@@ -29,7 +24,7 @@ class Solution:
             nextValInRow = float("inf") if newIdx + 1 >= len(matrix[array]) else matrix[array][newIdx+1]
             newElement = (matrix[array][newIdx],nextValInRow,array,newIdx)
             
-            heapq.heappush(minElements,newElement)
+            heapq.heappush(heap,newElement)
             
         #if kSmallest == None:
                 
