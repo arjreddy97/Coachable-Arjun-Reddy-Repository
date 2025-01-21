@@ -6,13 +6,13 @@ class Solution:
         for i in range(1,len(nums)):
             if (nums[i] < nums[i-1]):
                 isNonDecreasing = False
-                break
+                
                 
         for i in range(1,len(nums)):
             
             if (nums[i] > nums[i-1]):
                 isNonIncreasing = False
-                break
+               
                 
         return isNonDecreasing or isNonIncreasing
         
