@@ -4,8 +4,7 @@ class Solution:
         leftRunning = 0
         for i in range(len(nums)):
             num = nums[i]
-            if i == len(nums)-1 and leftRunning == 0:
-                return i
+            
             rightRunning = totalSum - leftRunning - num
             if leftRunning == rightRunning:
                 return i
