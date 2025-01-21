@@ -1,9 +1,9 @@
 class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        return self.getMaxDiamter(root)[1]
+        return self.getMaxDiameter(root)[1]
         
         
-    def getMaxDiamter(self,root):
+    def getMaxDiameter(self,root):
         if (root == None):
             return (0,0)
         
