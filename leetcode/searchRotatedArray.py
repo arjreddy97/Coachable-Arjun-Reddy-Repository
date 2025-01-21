@@ -10,8 +10,8 @@ def shiftedBinarySearch(array, target):
 	right = len(array) - 1
 	
 	while left <= right:
-		leftBound = array[left]
-		rightBound = array[right]
+		left = array[left]
+		right= array[right]
 		mid = (left + right) // 2
 		potential = array[mid]
 		
@@ -19,13 +19,13 @@ def shiftedBinarySearch(array, target):
 			return mid
 		
 		elif leftBound <= potential:
-			if leftBound <= target and target < potential:
+			if left <= target and target < potential:
 				right = mid - 1
 			else:
 				left = mid + 1
 		
 		else:
-			if rightBound >= target and target > potential:
+			if right >= target and target > potential:
 				left = mid + 1
 			else:
 				right = mid - 1
