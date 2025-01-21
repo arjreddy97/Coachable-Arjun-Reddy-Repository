@@ -3,20 +3,15 @@ class Solution:
         if (node == None):
             return 
         clonedNodes = {}
-        self.dfs(node,set(),clonedNodes)
+        self.dfs(node,clonedNodes)
         return clonedNodes[node.val]
         
     def dfs(self,node,visited,clonedNodes):
         
-        if (node == None):
+        if (node.val in cloned_nodes):
             return 
         
-        if (node.val in visited):
-            
-            return 
-        
-        
-        visited.add(node.val)
+        cloned_nodes.add(node.val)
         
         if (node.val not in clonedNodes):
             clonedNodes[node.val] = Node(node.val,[])
@@ -29,5 +24,4 @@ class Solution:
                 clonedNodes[nei.val] = Node(nei.val,[])
                 
             clonedNode.neighbors.append(clonedNodes[nei.val])
-            
-            self.dfs(nei,visited,clonedNodes)
+            self.dfs(nei,clonedNodes)
