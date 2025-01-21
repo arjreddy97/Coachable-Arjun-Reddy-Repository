@@ -1,10 +1,12 @@
+from collections import deque
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         max_area = 0
-        visited = [[False for col in range(len(grid[row]))] for row in range(len(grid))]
+        visited = set()
         for row in range(len(grid)):
             for col in range(len(grid[row])):
-                if visited[row][col] or grid[row][col] == 0:
+                key = str(row)+":"+str(col)
+                if key in visited or grid[row][col] == 0:
                     continue
                 size = self.bfs(row,col,grid,visited)
                 max_area = max(max_area,size)
@@ -12,15 +14,16 @@ class Solution:
 
     def bfs(self,i,j,grid,visited):
 
-        queue = [(i,j)]
+        queue = deque([(i,j)])
         size = 0
         while len(queue):
-            i,j = queue.pop(0)
+            i,j = queue.popleft()
             if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]):
                     continue
-            if visited[i][j] or grid[i][j] == 0:
+            key = str(row)+":"+str(col)
+            if key in visited or grid[i][j] == 0:
                 continue
-            visited[i][j] = True
+            visited.add(key)
             size += 1
             directions = [(1,0),(-1,0),(0,1),(0,-1)]
             for dir_ in directions:
