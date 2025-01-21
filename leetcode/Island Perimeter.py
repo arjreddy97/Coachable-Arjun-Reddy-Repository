@@ -10,15 +10,8 @@ class Solution:
     
     def incrementCounts(self,grid,row,col):
         counts = 0
-        if row > 0 and grid[row-1][col] == 1:
-            print("hello")
-            counts -= 1
-
-        if row < len(grid)-1 and grid[row+1][col] == 1:
-            counts -=1
-        if col > 0 and grid[row][col-1] == 1:
-            counts -=1
-        if col < len(grid[0])-1 and grid[row][col+1]:
-            counts -=1
+        for dr, dc in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
+            if 0 <= row + dr < len(grid) and 0 <= col + dc < len(grid[0]) and grid[row + dr][col + dc] == 1:
+                counts -= 1
         return counts
         
