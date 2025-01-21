@@ -13,7 +13,6 @@ class Solution:
             
             currentElement = heapq.heappop(frequencyScores)
             currentFreq,currentWord = currentElement
-            print(currentWord)
             kFreqElements.append(currentWord)
             counter -= 1
         
