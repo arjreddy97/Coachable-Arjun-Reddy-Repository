@@ -7,7 +7,7 @@ List[str]:
         for i in range(len(board)):
             for j in range(len(board[0])):
                 self.search(i,j,board,trie,visited,allWords)
-        return allWords
+        return list(allWords)
     
     def search(self,row,col,board,trie,visited,allWords):
         if ("*" in trie):
@@ -56,7 +56,7 @@ len(board[0])):
             for char in word:
                 if char not in current:
                     current[char] = {}
-                current = current[char]
+                current = current.setdefault(char, {})
             current["*"] = word
         return trie
     
