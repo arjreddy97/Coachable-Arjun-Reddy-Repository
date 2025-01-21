@@ -34,12 +34,8 @@ class Solution(object):
         
         
         for col in sorted(self.d.keys()):
-            r = []
-            for row in sorted(self.d[col].keys()):
-                for ele in sorted(self.d[col][row]):
-                    r.append(ele)
-            
-            res.append(r)
+            col_res = [val for row in sorted(self.d[col].keys()) for val in sorted(self.d[col][row])]
+            res.append(col_res)
                 
         
         return res
