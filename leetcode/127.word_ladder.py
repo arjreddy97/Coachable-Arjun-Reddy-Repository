@@ -1,7 +1,8 @@
 from collections import deque
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
-        words = set(wordList)
+        words_list = copy(wordList)
+        words = set(words_list)
         return self.breadthFirstSearch(beginWord,endWord,words,set())
         
         
