@@ -3,24 +3,29 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
 class Solution:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
-        if head.next == None:
-            if n == 1:
-                return None
-            return head
         
-        counter = 1
-        second = head
-        while counter <= n:
-            second = second.next
-            counter += 1
+        dummy = ListNode(-1)
+        dummy.next = head
+        fast = slow = dummy
         
-        if second == None:
-            head.val = head.next.val
-            head.next = head.next.next
-            return head
+        for _ in range(n + 1):
+            fast = fast.next
         
         
-        first = head
+        while fast:
+            fast = fast.next
+            slow = slow.next
+        
+        
+        slow.next = slow.next.next
+        
+        return dummy.next
+
         
