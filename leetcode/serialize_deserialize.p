@@ -31,7 +31,3 @@ class Codec:
         root.right = self.buildTree(data)
         return root
 
-# Your Codec object will be instantiated and called as such:
-# ser = Codec()
-# deser = Codec()
-# ans = deser.deserialize(ser.serialize(root))

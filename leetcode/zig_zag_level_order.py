@@ -27,4 +27,3 @@ class Solution:
            output[-1] = output[-1][::-1]
       
        return output
-

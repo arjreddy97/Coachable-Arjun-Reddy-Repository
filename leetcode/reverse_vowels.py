@@ -19,5 +19,3 @@ def getVowels(string):
         if char in vowelSet:
             vowels.append(char)
     return vowels
-            
-        

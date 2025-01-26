@@ -12,5 +12,3 @@ def isIsomorphic(self, s, t):
            else:
                if mappingsTwo[t[i]]!=s[i]:
                    return False
-       return True
-          
