@@ -25,5 +25,3 @@ class Solution:
                 rightMax = max(heights[rightIdx],rightMax)
                 
         return totalWater
-                
-            

@@ -22,4 +22,3 @@ class Solution:
       
        return self.max_length
 
-

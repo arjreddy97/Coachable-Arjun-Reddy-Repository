@@ -5,7 +5,6 @@ class Solution:
        minPurchase = prices[0]
        maxProfit = 0
 
-
        for i in range(1,len(prices)):
            currPrice = prices[i]
            minPurchase = min(minPurchase,currPrice)
